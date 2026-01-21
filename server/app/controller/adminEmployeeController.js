@@ -196,15 +196,11 @@ class adminEmployeeController {
       employee.isFirstLogin = true;
       await employee.save();
 
-      try {
-        await sendEmployeeCredentials(
-          employee.email,
-          employee.employeeId,
-          tempPassword,
+      sendEmployeeCredentials(employee.email, employee.employeeId, tempPassword)
+        .then(() => console.log("Reset password email sent"))
+        .catch((err) =>
+          console.error("Reset password email failed:", err.message),
         );
-      } catch (emailError) {
-        console.error("Email failed:", emailError.message);
-      }
 
       return res.status(statusCodes.OK).json({
         message: "Password reset successfully and email sent to employee",
