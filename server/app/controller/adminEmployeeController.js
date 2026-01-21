@@ -204,7 +204,7 @@ try {
        await sendEmployeeCredentials(employee.email, employee.employeeId, tempPassword)
          console.log("Reset password email sent")
       }catch(err){
-          console.error("Reset password email failed:", err.message),
+          console.error("Reset password email failed:", err.message)
       }
 
       return res.status(statusCodes.OK).json({
