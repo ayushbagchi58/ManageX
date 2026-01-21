@@ -1,17 +1,17 @@
-const resend = require("./emailConfig");
+const transporter = require('./emailConfig');
 
 const sendEmployeeCredentials = async (email, empId, password) => {
-  await resend.emails.send({
-    from: "ManageX <no-reply@resend.dev>",
+  await transporter.sendMail({
+    from: process.env.EMAIL_FROM,
     to: email,
-    subject: "Your Employee Login Credentials",
+    subject: "Employee Login Credentials",
     html: `
       <h2>Welcome to Company</h2>
       <p><b>Employee ID:</b> ${empId}</p>
       <p><b>Temporary Password:</b> ${password}</p>
-      <p>Login URL: ${process.env.FRONTEND_URL}/employee/login</p>
+      <p>Login URL: http://localhost:5173/employee/login</p>
       <p style="color:red">Please change password after first login.</p>
-    `,
+    `
   });
 };
 

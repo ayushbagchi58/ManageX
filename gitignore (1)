@@ -1,60 +1,34 @@
-# ==========================
-# Environment Variables
-# ==========================
-.env
-.env.*
-!.env.example
-
-# ==========================
-# Node.js
-# ==========================
+# Node modules
 node_modules/
+client/node_modules/
+server/node_modules/
+
+# # Environment variables
+# .env
+# client/.env
+# server/.env
+
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# ==========================
-# Build Outputs
-# ==========================
+# Build folders
 dist/
-build/
-.out/
-.next/
+dist-ssr/
+*.local
 
-# ==========================
-# Logs
-# ==========================
-logs/
-*.log
-
-# ==========================
-# OS Files
-# ==========================
-.DS_Store
-Thumbs.db
-
-# ==========================
-# Editor / IDE
-# ==========================
-.vscode/
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea/
-*.swp
-*.swo
-
-# ==========================
-# Cache
-# ==========================
-.cache/
-.eslintcache
-
-# ==========================
-# Testing
-# ==========================
-coverage/
-
-# ==========================
-# Misc
-# ==========================
-*.pem
-*.key
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
