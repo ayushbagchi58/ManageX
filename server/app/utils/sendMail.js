@@ -2,7 +2,7 @@ const resend = require("./emailConfig");
 
 const sendEmployeeCredentials = async (email, empId, password) => {
   await resend.emails.send({
-    from: "ManageX <onboarding@resend.dev>",
+    from: "ManageX <no-reply@resend.dev>",
     to: email,
     subject: "Your Employee Login Credentials",
     html: `

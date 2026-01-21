@@ -43,9 +43,14 @@ class adminEmployeeController {
       });
 
       //send credentials via email
-      sendEmployeeCredentials(email, employeeId, tempPassword)
-        .then(() => console.log("Email sent"))
-        .catch((err) => console.error("Email failed:", err.message));
+      // send credentials via email
+try {
+  await sendEmployeeCredentials(email, employeeId, tempPassword);
+  console.log("Email sent");
+} catch (err) {
+  console.error("Email failed:", err.message);
+}
+
 
       return res.status(statusCodes.CREATED).json({
         message: "Employee created successfully!",
@@ -195,12 +200,12 @@ class adminEmployeeController {
       employee.password = hashed;
       employee.isFirstLogin = true;
       await employee.save();
-
-      sendEmployeeCredentials(employee.email, employee.employeeId, tempPassword)
-        .then(() => console.log("Reset password email sent"))
-        .catch((err) =>
+      try{
+       await sendEmployeeCredentials(employee.email, employee.employeeId, tempPassword)
+         console.log("Reset password email sent")
+      }catch(err){
           console.error("Reset password email failed:", err.message),
-        );
+      }
 
       return res.status(statusCodes.OK).json({
         message: "Password reset successfully and email sent to employee",
