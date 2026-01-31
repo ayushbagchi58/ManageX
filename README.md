@@ -173,19 +173,6 @@ Employee-Management-System/
 ├── frontend/
 └── README.md
 ```
-
----
-
-## ⚙️ Environment Variables
-
-```env
-PORT=3005
-MONGO_URI=your_mongodb_url
-JWT_SECRET=your_jwt_secret
-EMAIL_USER=your_email
-EMAIL_PASS=your_email_password
-```
-
 ---
 
 ## 🧑‍💻 Author
